@@ -1,0 +1,6 @@
+Level,Jumlah Sesi (Node),Jumlah Konflik (Edge),Densitas Graph,Greedy - Warna Minimum,Greedy - Waktu (ms),Greedy - Slot Terisi,Greedy - Pelanggaran,DSATUR - Warna Minimum,DSATUR - Waktu (ms),DSATUR - Slot Terisi,DSATUR - Pelanggaran,Efisiensi DSATUR (%)
+1,50,573,0.468,15,0.1323,50/50,0,11,0.8876,50/50,0,26.67
+2,65,906,0.436,15,0.2154,50/50,0,13,1.3608,50/50,0,13.33
+3,80,1332,0.422,21,0.3036,50/50,0,19,1.8718,50/50,0,9.52
+4,95,1802,0.404,19,0.3727,50/50,0,16,2.3611,50/50,0,15.79
+5,110,2420,0.404,23,0.3428,50/50,0,21,2.4831,50/50,0,8.7

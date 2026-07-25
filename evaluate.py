@@ -20,7 +20,7 @@ import pandas as pd
 
 from scheduler import (
     build_conflict_graph, greedy_coloring, dsatur_coloring,
-    map_colors_to_schedule, validate_schedule,
+    map_colors_to_schedule, distribute_full_schedule, validate_schedule,
 )
 
 
@@ -42,12 +42,16 @@ def evaluate_all_levels(data_dir="data", out_dir="output"):
         g_colors, g_n, g_t = greedy_coloring(G)
         d_colors, d_n, d_t = dsatur_coloring(G)
 
-        jadwal_g, feas_g = map_colors_to_schedule(g_colors, data)
-        jadwal_d, feas_d = map_colors_to_schedule(d_colors, data)
+        # jadwal akhir yang diekspor/divisualisasikan: disebar ke SELURUH
+        # 50 slot (Senin-Jumat penuh), bukan dipadatkan ke jumlah warna
+        # minimum -- lihat distribute_full_schedule() di scheduler.py
+        jadwal_g, feas_g, terisi_g = distribute_full_schedule(g_colors, data)
+        jadwal_d, feas_d, terisi_d = distribute_full_schedule(d_colors, data)
 
         v_g = validate_schedule(jadwal_g)
         v_d = validate_schedule(jadwal_d)
 
+        total_slot = data["total_slot_tersedia"]
         reduksi = (g_n - d_n) / g_n * 100 if g_n > 0 else 0
 
         rows.append({
@@ -55,13 +59,13 @@ def evaluate_all_levels(data_dir="data", out_dir="output"):
             "Jumlah Sesi (Node)": n_node,
             "Jumlah Konflik (Edge)": n_edge,
             "Densitas Graph": round(density, 3),
-            "Greedy - Warna/Slot": g_n,
+            "Greedy - Warna Minimum": g_n,
             "Greedy - Waktu (ms)": round(g_t * 1000, 4),
-            "Greedy - Feasible": feas_g,
+            "Greedy - Slot Terisi": f"{terisi_g}/{total_slot}",
             "Greedy - Pelanggaran": v_g,
-            "DSATUR - Warna/Slot": d_n,
+            "DSATUR - Warna Minimum": d_n,
             "DSATUR - Waktu (ms)": round(d_t * 1000, 4),
-            "DSATUR - Feasible": feas_d,
+            "DSATUR - Slot Terisi": f"{terisi_d}/{total_slot}",
             "DSATUR - Pelanggaran": v_d,
             "Efisiensi DSATUR (%)": round(reduksi, 2),
         })

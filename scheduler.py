@@ -149,6 +149,105 @@ def map_colors_to_schedule(color_of: dict, data: dict):
 
 
 # ---------------------------------------------------------------------
+# 4b. Distribusi PENUH ke seluruh slot (revisi: Senin-Jumat harus penuh)
+# ---------------------------------------------------------------------
+def distribute_full_schedule(color_of: dict, data: dict):
+    """map_colors_to_schedule() di atas memetakan warna->slot secara
+    LANGSUNG (warna 0 -> slot pertama, dst), sehingga jika algoritma
+    coloring hanya butuh k warna (k jauh lebih kecil dari 50 slot yang
+    tersedia -- ini WAJAR karena tujuan graph coloring memang memampatkan
+    sesi ke slot sesedikit mungkin), maka slot ke-(k+1) s.d. ke-50 akan
+    kosong sama sekali.
+
+    Fungsi ini menyebarkan (redistribute) sesi hasil coloring ke SELURUH
+    50 slot secara proporsional per kelompok warna, sehingga jadwal
+    akhir Senin-Jumat terisi penuh. Ini TETAP AMAN secara constraint:
+    - Sesi dalam kelompok warna yang SAMA sudah terbukti tidak saling
+      bentrok (independent set hasil proper coloring), sehingga boleh
+      dipecah dan disebar ke slot manapun tanpa risiko bentrok baru.
+    - Sesi dari kelompok warna BERBEDA tidak pernah digabung ke slot
+      yang sama, sehingga tidak ada bentrok sumber daya yang muncul.
+
+    Jumlah slot yang dialokasikan untuk tiap kelompok warna sebanding
+    dengan jumlah sesi pada kelompok tsb (metode largest remainder),
+    minimum 1 slot per kelompok, dan totalnya persis = total_slot.
+    """
+    hari_list = data["hari"]
+    slot_per_hari = data["slot_per_hari"]
+    total_slot = len(hari_list) * slot_per_hari
+
+    groups = {}
+    for id_sesi, c in color_of.items():
+        groups.setdefault(c, []).append(id_sesi)
+    colors_sorted = sorted(groups.keys())
+    k = len(colors_sorted)
+    n = len(color_of)
+
+    feasible = k <= total_slot and n <= total_slot * 50  # batas akal sehat
+
+    if k == 0:
+        return [], True, 0
+
+    if k > total_slot:
+        # Terlalu banyak warna dibanding slot tersedia -> tidak feasible;
+        # fallback: pakai mapping langsung (akan menandai TIDAK MUAT).
+        return map_colors_to_schedule(color_of, data)
+
+    # --- alokasi jumlah slot per kelompok, proporsional terhadap ukuran
+    #     kelompok, DIBATASI maksimum = jumlah sesi pada kelompok tsb
+    #     (sebuah kelompok tidak mungkin mengisi lebih banyak slot unik
+    #     daripada jumlah sesi yang dimilikinya, atau akan ada slot
+    #     kosong yang "dijatah" tapi tak terisi sesi apapun). Karena
+    #     total sesi n >= total_slot (dijamin oleh data_generator),
+    #     total kapasitas seluruh kelompok selalu cukup untuk mengisi
+    #     semua slot.
+    sizes = [len(groups[c]) for c in colors_sorted]
+    exact = [s / n * total_slot for s in sizes]
+    alloc = [min(sizes[i], max(1, int(exact[i]))) for i in range(k)]
+    remaining = total_slot - sum(alloc)
+    # sisa slot dibagikan bergiliran ke kelompok yang masih punya "kapasitas"
+    # (alloc < sizes), berputar sampai persis total_slot terisi
+    guard = 0
+    while remaining > 0 and guard < 100000:
+        idx = guard % k
+        if alloc[idx] < sizes[idx]:
+            alloc[idx] += 1
+            remaining -= 1
+        guard += 1
+
+    # --- assign slot spesifik ke tiap sesi (round-robin dalam kelompoknya) ---
+    sesi_by_id = {s["id_sesi"]: s for s in data["sesi_praktikum"]}
+    jadwal = []
+    slot_cursor = 0
+    for gi, c in enumerate(colors_sorted):
+        n_slot_grup = alloc[gi]
+        target_slots = list(range(slot_cursor, slot_cursor + n_slot_grup))
+        slot_cursor += n_slot_grup
+        anggota = groups[c]
+        for idx_s, id_sesi in enumerate(anggota):
+            slot_idx = target_slots[idx_s % len(target_slots)]
+            hari = hari_list[slot_idx // slot_per_hari]
+            slot = (slot_idx % slot_per_hari) + 1
+            sesi = sesi_by_id[id_sesi]
+            jadwal.append({
+                "id_sesi": id_sesi,
+                "mata_kuliah": sesi["mata_kuliah"],
+                "kelas": sesi["kelas"],
+                "dosen": sesi["dosen"],
+                "asisten": sesi["asisten"],
+                "ruang_lab": sesi["ruang_lab"],
+                "peralatan_lab": sesi["peralatan_lab"],
+                "hari": hari,
+                "slot": slot,
+                "warna_graph": c,
+            })
+
+    jadwal.sort(key=lambda x: (hari_list.index(x["hari"]), x["slot"]))
+    slot_terisi = len({(s["hari"], s["slot"]) for s in jadwal})
+    return jadwal, feasible, slot_terisi
+
+
+# ---------------------------------------------------------------------
 # 5. Validasi: pastikan tidak ada bentrok sumber daya pada jadwal akhir
 # ---------------------------------------------------------------------
 def validate_schedule(jadwal: list) -> int:

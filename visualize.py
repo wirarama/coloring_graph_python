@@ -60,14 +60,14 @@ def plot_comparison_charts(df, out_dir="output"):
     x = np.arange(len(levels))
     w = 0.35
 
-    # Chart 1: jumlah warna/slot
+    # Chart 1: jumlah warna minimum (chromatic estimate)
     ax = axes[0]
-    b1 = ax.bar(x - w/2, df["Greedy - Warna/Slot"], w, label="Greedy Coloring", color="#e07a5f")
-    b2 = ax.bar(x + w/2, df["DSATUR - Warna/Slot"], w, label="DSATUR Coloring", color="#3d5a80")
+    b1 = ax.bar(x - w/2, df["Greedy - Warna Minimum"], w, label="Greedy Coloring", color="#e07a5f")
+    b2 = ax.bar(x + w/2, df["DSATUR - Warna Minimum"], w, label="DSATUR Coloring", color="#3d5a80")
     ax.set_xticks(x)
     ax.set_xticklabels([f"Level {l}" for l in levels])
-    ax.set_ylabel("Jumlah Slot Waktu Dipakai (warna)")
-    ax.set_title("Jumlah Slot Waktu yang Dibutuhkan")
+    ax.set_ylabel("Jumlah Warna Minimum Dibutuhkan")
+    ax.set_title("Efisiensi Pemampatan (Warna Minimum)")
     ax.legend()
     ax.bar_label(b1, fontsize=8)
     ax.bar_label(b2, fontsize=8)
