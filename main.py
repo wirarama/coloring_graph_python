@@ -7,10 +7,11 @@ Entry point tunggal. Menjalankan seluruh pipeline:
 3. Hasilkan tabel evaluasi -> output/tabel_evaluasi.csv
 4. Ekspor jadwal final (hasil DSATUR, algoritma terbaik) tiap level
    -> output/jadwal_level{n}.json dan .csv
-5. Hasilkan visualisasi:
-   - output/graph_coloring_level{N}.png
-   - output/perbandingan_algoritma.png
-   - output/heatmap_jadwal_level{N}_dsatur.png / _greedy.png
+5. Hasilkan visualisasi LENGKAP UNTUK SETIAP LEVEL (1-5):
+   - output/graph_coloring_level{1..5}.png
+   - output/heatmap_jadwal_level{1..5}_dsatur.png
+   - output/heatmap_jadwal_level{1..5}_greedy.png
+   - output/perbandingan_algoritma.png (ringkasan semua level sekaligus)
 
 Cara pakai:
     python3 main.py
@@ -26,8 +27,7 @@ from visualize import plot_colored_graphs, plot_comparison_charts, plot_schedule
 
 DATA_DIR = "data"
 OUT_DIR = "output"
-GRAPH_VIZ_LEVEL = 2       # level yang digunakan utk visual graph (agar tetap terbaca)
-HEATMAP_LEVEL = 3         # level yang digunakan utk contoh heatmap jadwal
+ALL_LEVELS = range(1, 6)  # visualisasi dibuat untuk seluruh level 1-5
 
 
 def export_schedules(schedules, out_dir=OUT_DIR):
@@ -55,11 +55,17 @@ def main():
     print("\n[3/4] Mengekspor jadwal final (DSATUR) per level...")
     export_schedules(schedules, out_dir=OUT_DIR)
 
-    print("\n[4/4] Membuat visualisasi...")
-    p1 = plot_colored_graphs(schedules, level=GRAPH_VIZ_LEVEL, out_dir=OUT_DIR)
-    p2 = plot_comparison_charts(df, out_dir=OUT_DIR)
-    p3 = plot_schedule_heatmap(schedules, level=HEATMAP_LEVEL, algo="dsatur", out_dir=OUT_DIR)
-    p4 = plot_schedule_heatmap(schedules, level=HEATMAP_LEVEL, algo="greedy", out_dir=OUT_DIR)
+    print("\n[4/4] Membuat visualisasi untuk SEMUA level (1-5)...")
+    generated = []
+    for level in ALL_LEVELS:
+        p1 = plot_colored_graphs(schedules, level=level, out_dir=OUT_DIR)
+        p2 = plot_schedule_heatmap(schedules, level=level, algo="dsatur", out_dir=OUT_DIR)
+        p3 = plot_schedule_heatmap(schedules, level=level, algo="greedy", out_dir=OUT_DIR)
+        generated += [p1, p2, p3]
+        print(f"  Level {level}: {os.path.basename(p1)}, {os.path.basename(p2)}, {os.path.basename(p3)}")
+
+    p_compare = plot_comparison_charts(df, out_dir=OUT_DIR)
+    generated.append(p_compare)
 
     print("\nSemua file output:")
     for f in sorted(os.listdir(OUT_DIR)):
@@ -70,3 +76,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
