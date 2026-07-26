@@ -35,19 +35,19 @@ L4-S065,Pemrograman Web,C,Dr. Maya Ph.D. (D13),"['Dewi (A11)', 'Yoga (A08)']",La
 L4-S014,Grafika Komputer,C,Dr. Citra Ph.D. (D16),['Maya (A18)'],Lab-E,"['Alat-08', 'Alat-14']",Rabu,1,5
 L4-S041,Algoritma & Pemrograman,A,"Dr. Lutfi S.Kom., M.Kom. (D14)","['Umi (A01)', 'Umi (A12)']",Lab-F,"['Alat-02', 'Alat-07']",Rabu,2,5
 L4-S038,Grafika Komputer,A,Dr. Sari M.Eng. (D10),['Rama (A06)'],Lab-H,"['Alat-04', 'Alat-16']",Rabu,3,5
-L4-S032,Pemrograman Web,C,"Dr. Lutfi S.Kom., M.Kom. (D14)","['Dewi (A24)', 'Maya (A20)']",Lab-C,"['Alat-03', 'Alat-05', 'Alat-11']",Rabu,4,6
-L4-S066,Keamanan Jaringan,C,Dr. Citra Ph.D. (D01),['Oka (A07)'],Lab-D,"['Alat-08', 'Alat-17']",Rabu,4,6
-L4-S067,Keamanan Jaringan,B,Dr. Rama M.Eng. (D11),"['Umi (A15)', 'Yoga (A08)']",Lab-B,['Alat-14'],Rabu,4,6
-L4-S075,Algoritma & Pemrograman,C,Dr. Citra Ph.D. (D16),"['Joko (A21)', 'Umi (A12)']",Lab-A,"['Alat-01', 'Alat-04', 'Alat-06']",Rabu,5,6
-L4-S058,Struktur Data,A,Dr. Putri Ph.D. (D15),['Dewi (A02)'],Lab-F,"['Alat-02', 'Alat-16']",Rabu,5,6
-L4-S080,Keamanan Jaringan,C,Dr. Maya Ph.D. (D13),"['Citra (A14)', 'Hadi (A26)']",Lab-G,"['Alat-10', 'Alat-15']",Rabu,6,6
-L4-S068,Jaringan Komputer,C,Dr. Vina M.Cs. (D04),['Hadi (A04)'],Lab-E,"['Alat-07', 'Alat-12']",Rabu,6,6
-L4-S018,IoT,A,"Dr. Kartika S.T., M.T. (D08)","['Dewi (A11)', 'Eka (A10)']",Lab-G,"['Alat-11', 'Alat-17']",Rabu,7,7
-L4-S043,Jaringan Komputer,A,"Dr. Adi S.T., M.T. (D07)","['Lutfi (A13)', 'Umi (A01)']",Lab-B,"['Alat-04', 'Alat-14']",Rabu,7,7
-L4-S027,Mikrokontroler,B,Dr. Zahra M.Cs. (D17),"['Citra (A14)', 'Oka (A17)']",Lab-E,"['Alat-05', 'Alat-10', 'Alat-16']",Rabu,8,7
-L4-S028,Basis Data,A,Dr. Vina M.Cs. (D04),"['Kartika (A05)', 'Taufik (A25)']",Lab-F,"['Alat-02', 'Alat-06']",Rabu,8,7
-L4-S069,Rekayasa Perangkat Lunak,A,Dr. Citra Ph.D. (D16),['Hadi (A26)'],Lab-C,"['Alat-01', 'Alat-07', 'Alat-12']",Rabu,9,7
-L4-S079,Sistem Tertanam,B,Dr. Putri Ph.D. (D15),['Nanda (A03)'],Lab-H,['Alat-15'],Rabu,9,7
+L4-S018,IoT,A,"Dr. Kartika S.T., M.T. (D08)","['Dewi (A11)', 'Eka (A10)']",Lab-G,"['Alat-11', 'Alat-17']",Rabu,4,6
+L4-S043,Jaringan Komputer,A,"Dr. Adi S.T., M.T. (D07)","['Lutfi (A13)', 'Umi (A01)']",Lab-B,"['Alat-04', 'Alat-14']",Rabu,4,6
+L4-S027,Mikrokontroler,B,Dr. Zahra M.Cs. (D17),"['Citra (A14)', 'Oka (A17)']",Lab-E,"['Alat-05', 'Alat-10', 'Alat-16']",Rabu,5,6
+L4-S028,Basis Data,A,Dr. Vina M.Cs. (D04),"['Kartika (A05)', 'Taufik (A25)']",Lab-F,"['Alat-02', 'Alat-06']",Rabu,5,6
+L4-S069,Rekayasa Perangkat Lunak,A,Dr. Citra Ph.D. (D16),['Hadi (A26)'],Lab-C,"['Alat-01', 'Alat-07', 'Alat-12']",Rabu,6,6
+L4-S079,Sistem Tertanam,B,Dr. Putri Ph.D. (D15),['Nanda (A03)'],Lab-H,['Alat-15'],Rabu,6,6
+L4-S032,Pemrograman Web,C,"Dr. Lutfi S.Kom., M.Kom. (D14)","['Dewi (A24)', 'Maya (A20)']",Lab-C,"['Alat-03', 'Alat-05', 'Alat-11']",Rabu,7,7
+L4-S066,Keamanan Jaringan,C,Dr. Citra Ph.D. (D01),['Oka (A07)'],Lab-D,"['Alat-08', 'Alat-17']",Rabu,7,7
+L4-S067,Keamanan Jaringan,B,Dr. Rama M.Eng. (D11),"['Umi (A15)', 'Yoga (A08)']",Lab-B,['Alat-14'],Rabu,7,7
+L4-S075,Algoritma & Pemrograman,C,Dr. Citra Ph.D. (D16),"['Joko (A21)', 'Umi (A12)']",Lab-A,"['Alat-01', 'Alat-04', 'Alat-06']",Rabu,8,7
+L4-S058,Struktur Data,A,Dr. Putri Ph.D. (D15),['Dewi (A02)'],Lab-F,"['Alat-02', 'Alat-16']",Rabu,8,7
+L4-S080,Keamanan Jaringan,C,Dr. Maya Ph.D. (D13),"['Citra (A14)', 'Hadi (A26)']",Lab-G,"['Alat-10', 'Alat-15']",Rabu,9,7
+L4-S068,Jaringan Komputer,C,Dr. Vina M.Cs. (D04),['Hadi (A04)'],Lab-E,"['Alat-07', 'Alat-12']",Rabu,9,7
 L4-S093,Kecerdasan Buatan,A,"Dr. Adi S.T., M.T. (D07)",['Dewi (A11)'],Lab-F,"['Alat-05', 'Alat-08']",Rabu,10,8
 L4-S011,Algoritma & Pemrograman,C,Dr. Maya Ph.D. (D13),['Nanda (A03)'],Lab-D,"['Alat-04', 'Alat-12', 'Alat-16']",Rabu,10,8
 L4-S031,Pemrograman Web,C,"Dr. Sari S.T., M.T. (D06)","['Lutfi (A22)', 'Yoga (A08)']",Lab-B,"['Alat-09', 'Alat-11', 'Alat-17']",Kamis,1,8

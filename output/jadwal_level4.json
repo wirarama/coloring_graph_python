@@ -639,130 +639,6 @@
     "warna_graph": 5
   },
   {
-    "id_sesi": "L4-S032",
-    "mata_kuliah": "Pemrograman Web",
-    "kelas": "C",
-    "dosen": "Dr. Lutfi S.Kom., M.Kom. (D14)",
-    "asisten": [
-      "Dewi (A24)",
-      "Maya (A20)"
-    ],
-    "ruang_lab": "Lab-C",
-    "peralatan_lab": [
-      "Alat-03",
-      "Alat-05",
-      "Alat-11"
-    ],
-    "hari": "Rabu",
-    "slot": 4,
-    "warna_graph": 6
-  },
-  {
-    "id_sesi": "L4-S066",
-    "mata_kuliah": "Keamanan Jaringan",
-    "kelas": "C",
-    "dosen": "Dr. Citra Ph.D. (D01)",
-    "asisten": [
-      "Oka (A07)"
-    ],
-    "ruang_lab": "Lab-D",
-    "peralatan_lab": [
-      "Alat-08",
-      "Alat-17"
-    ],
-    "hari": "Rabu",
-    "slot": 4,
-    "warna_graph": 6
-  },
-  {
-    "id_sesi": "L4-S067",
-    "mata_kuliah": "Keamanan Jaringan",
-    "kelas": "B",
-    "dosen": "Dr. Rama M.Eng. (D11)",
-    "asisten": [
-      "Umi (A15)",
-      "Yoga (A08)"
-    ],
-    "ruang_lab": "Lab-B",
-    "peralatan_lab": [
-      "Alat-14"
-    ],
-    "hari": "Rabu",
-    "slot": 4,
-    "warna_graph": 6
-  },
-  {
-    "id_sesi": "L4-S075",
-    "mata_kuliah": "Algoritma & Pemrograman",
-    "kelas": "C",
-    "dosen": "Dr. Citra Ph.D. (D16)",
-    "asisten": [
-      "Joko (A21)",
-      "Umi (A12)"
-    ],
-    "ruang_lab": "Lab-A",
-    "peralatan_lab": [
-      "Alat-01",
-      "Alat-04",
-      "Alat-06"
-    ],
-    "hari": "Rabu",
-    "slot": 5,
-    "warna_graph": 6
-  },
-  {
-    "id_sesi": "L4-S058",
-    "mata_kuliah": "Struktur Data",
-    "kelas": "A",
-    "dosen": "Dr. Putri Ph.D. (D15)",
-    "asisten": [
-      "Dewi (A02)"
-    ],
-    "ruang_lab": "Lab-F",
-    "peralatan_lab": [
-      "Alat-02",
-      "Alat-16"
-    ],
-    "hari": "Rabu",
-    "slot": 5,
-    "warna_graph": 6
-  },
-  {
-    "id_sesi": "L4-S080",
-    "mata_kuliah": "Keamanan Jaringan",
-    "kelas": "C",
-    "dosen": "Dr. Maya Ph.D. (D13)",
-    "asisten": [
-      "Citra (A14)",
-      "Hadi (A26)"
-    ],
-    "ruang_lab": "Lab-G",
-    "peralatan_lab": [
-      "Alat-10",
-      "Alat-15"
-    ],
-    "hari": "Rabu",
-    "slot": 6,
-    "warna_graph": 6
-  },
-  {
-    "id_sesi": "L4-S068",
-    "mata_kuliah": "Jaringan Komputer",
-    "kelas": "C",
-    "dosen": "Dr. Vina M.Cs. (D04)",
-    "asisten": [
-      "Hadi (A04)"
-    ],
-    "ruang_lab": "Lab-E",
-    "peralatan_lab": [
-      "Alat-07",
-      "Alat-12"
-    ],
-    "hari": "Rabu",
-    "slot": 6,
-    "warna_graph": 6
-  },
-  {
     "id_sesi": "L4-S018",
     "mata_kuliah": "IoT",
     "kelas": "A",
@@ -777,8 +653,8 @@
       "Alat-17"
     ],
     "hari": "Rabu",
-    "slot": 7,
-    "warna_graph": 7
+    "slot": 4,
+    "warna_graph": 6
   },
   {
     "id_sesi": "L4-S043",
@@ -795,8 +671,8 @@
       "Alat-14"
     ],
     "hari": "Rabu",
-    "slot": 7,
-    "warna_graph": 7
+    "slot": 4,
+    "warna_graph": 6
   },
   {
     "id_sesi": "L4-S027",
@@ -814,8 +690,8 @@
       "Alat-16"
     ],
     "hari": "Rabu",
-    "slot": 8,
-    "warna_graph": 7
+    "slot": 5,
+    "warna_graph": 6
   },
   {
     "id_sesi": "L4-S028",
@@ -832,8 +708,8 @@
       "Alat-06"
     ],
     "hari": "Rabu",
-    "slot": 8,
-    "warna_graph": 7
+    "slot": 5,
+    "warna_graph": 6
   },
   {
     "id_sesi": "L4-S069",
@@ -850,8 +726,8 @@
       "Alat-12"
     ],
     "hari": "Rabu",
-    "slot": 9,
-    "warna_graph": 7
+    "slot": 6,
+    "warna_graph": 6
   },
   {
     "id_sesi": "L4-S079",
@@ -864,6 +740,130 @@
     "ruang_lab": "Lab-H",
     "peralatan_lab": [
       "Alat-15"
+    ],
+    "hari": "Rabu",
+    "slot": 6,
+    "warna_graph": 6
+  },
+  {
+    "id_sesi": "L4-S032",
+    "mata_kuliah": "Pemrograman Web",
+    "kelas": "C",
+    "dosen": "Dr. Lutfi S.Kom., M.Kom. (D14)",
+    "asisten": [
+      "Dewi (A24)",
+      "Maya (A20)"
+    ],
+    "ruang_lab": "Lab-C",
+    "peralatan_lab": [
+      "Alat-03",
+      "Alat-05",
+      "Alat-11"
+    ],
+    "hari": "Rabu",
+    "slot": 7,
+    "warna_graph": 7
+  },
+  {
+    "id_sesi": "L4-S066",
+    "mata_kuliah": "Keamanan Jaringan",
+    "kelas": "C",
+    "dosen": "Dr. Citra Ph.D. (D01)",
+    "asisten": [
+      "Oka (A07)"
+    ],
+    "ruang_lab": "Lab-D",
+    "peralatan_lab": [
+      "Alat-08",
+      "Alat-17"
+    ],
+    "hari": "Rabu",
+    "slot": 7,
+    "warna_graph": 7
+  },
+  {
+    "id_sesi": "L4-S067",
+    "mata_kuliah": "Keamanan Jaringan",
+    "kelas": "B",
+    "dosen": "Dr. Rama M.Eng. (D11)",
+    "asisten": [
+      "Umi (A15)",
+      "Yoga (A08)"
+    ],
+    "ruang_lab": "Lab-B",
+    "peralatan_lab": [
+      "Alat-14"
+    ],
+    "hari": "Rabu",
+    "slot": 7,
+    "warna_graph": 7
+  },
+  {
+    "id_sesi": "L4-S075",
+    "mata_kuliah": "Algoritma & Pemrograman",
+    "kelas": "C",
+    "dosen": "Dr. Citra Ph.D. (D16)",
+    "asisten": [
+      "Joko (A21)",
+      "Umi (A12)"
+    ],
+    "ruang_lab": "Lab-A",
+    "peralatan_lab": [
+      "Alat-01",
+      "Alat-04",
+      "Alat-06"
+    ],
+    "hari": "Rabu",
+    "slot": 8,
+    "warna_graph": 7
+  },
+  {
+    "id_sesi": "L4-S058",
+    "mata_kuliah": "Struktur Data",
+    "kelas": "A",
+    "dosen": "Dr. Putri Ph.D. (D15)",
+    "asisten": [
+      "Dewi (A02)"
+    ],
+    "ruang_lab": "Lab-F",
+    "peralatan_lab": [
+      "Alat-02",
+      "Alat-16"
+    ],
+    "hari": "Rabu",
+    "slot": 8,
+    "warna_graph": 7
+  },
+  {
+    "id_sesi": "L4-S080",
+    "mata_kuliah": "Keamanan Jaringan",
+    "kelas": "C",
+    "dosen": "Dr. Maya Ph.D. (D13)",
+    "asisten": [
+      "Citra (A14)",
+      "Hadi (A26)"
+    ],
+    "ruang_lab": "Lab-G",
+    "peralatan_lab": [
+      "Alat-10",
+      "Alat-15"
+    ],
+    "hari": "Rabu",
+    "slot": 9,
+    "warna_graph": 7
+  },
+  {
+    "id_sesi": "L4-S068",
+    "mata_kuliah": "Jaringan Komputer",
+    "kelas": "C",
+    "dosen": "Dr. Vina M.Cs. (D04)",
+    "asisten": [
+      "Hadi (A04)"
+    ],
+    "ruang_lab": "Lab-E",
+    "peralatan_lab": [
+      "Alat-07",
+      "Alat-12"
     ],
     "hari": "Rabu",
     "slot": 9,
