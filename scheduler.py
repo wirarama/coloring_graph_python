@@ -16,6 +16,14 @@ Model masalah:
 - Tujuan: meminimalkan jumlah warna (slot waktu unik) yang dipakai,
   yaitu proper coloring dengan chromatic number sekecil mungkin.
 
+CATATAN: field "inventaris_lab" (aset tetap ruang lab dengan tag RFID,
+lihat data_generator.py) SENGAJA TIDAK dibaca oleh build_conflict_graph()
+di bawah -- aset ini bukan sumber daya yang diperebutkan antar sesi,
+jadi tidak mempengaruhi pembuatan edge/konflik maupun hasil coloring.
+Field ini hanya ditempelkan (join) ke tiap baris jadwal akhir sebagai
+informasi aset ruang, lihat map_colors_to_schedule() dan
+distribute_full_schedule().
+
 Dua algoritma dibandingkan:
 1. Greedy Coloring biasa (urutan alami / sequential order) - via
    networkx strategy 'connected_sequential' (setara node-by-node,
@@ -115,6 +123,14 @@ def dsatur_coloring(G: nx.Graph):
 # ---------------------------------------------------------------------
 # 4. Memetakan warna -> jadwal (hari, slot)
 # ---------------------------------------------------------------------
+def _inventaris_ruang(data: dict, ruang: str) -> list:
+    """Ambil daftar aset tetap (RFID) milik sebuah ruang lab, jika ada.
+    Field ini HANYA informasi tambahan pada output jadwal -- TIDAK
+    pernah dibaca oleh build_conflict_graph() sehingga tidak mempengaruhi
+    hasil penjadwalan sama sekali."""
+    return data.get("sumber_daya", {}).get("inventaris_lab", {}).get(ruang, [])
+
+
 def map_colors_to_schedule(color_of: dict, data: dict):
     hari_list = data["hari"]
     slot_per_hari = data["slot_per_hari"]
@@ -140,6 +156,7 @@ def map_colors_to_schedule(color_of: dict, data: dict):
             "asisten": sesi["asisten"],
             "ruang_lab": sesi["ruang_lab"],
             "peralatan_lab": sesi["peralatan_lab"],
+            "inventaris_ruang_lab": _inventaris_ruang(data, sesi["ruang_lab"]),
             "hari": hari,
             "slot": slot,
             "warna_graph": color,
@@ -237,6 +254,7 @@ def distribute_full_schedule(color_of: dict, data: dict):
                 "asisten": sesi["asisten"],
                 "ruang_lab": sesi["ruang_lab"],
                 "peralatan_lab": sesi["peralatan_lab"],
+                "inventaris_ruang_lab": _inventaris_ruang(data, sesi["ruang_lab"]),
                 "hari": hari,
                 "slot": slot,
                 "warna_graph": c,
